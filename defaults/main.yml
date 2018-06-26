@@ -1,0 +1,14 @@
+---
+mysqld_exporter_install_dir: "/opt/prometheus-exporters/mysqld-exporter"
+mysqld_exporter_version: "0.10.0"
+mysqld_exporter_name: "mysqld_exporter-{{ mysqld_exporter_version }}.linux-amd64"
+mysqld_exporter_url: "https://github.com/prometheus/mysqld_exporter/releases/download/v{{ mysqld_exporter_version }}/{{ mysqld_exporter_name }}.tar.gz"
+mysqld_exporter_binary: "{{ mysqld_exporter_install_dir }}/{{ mysqld_exporter_name }}/mysqld_exporter"
+mysqld_exporter_symlink: "{{ mysqld_exporter_install_dir }}/mysqld_exporter"
+
+mysqld_exporter_log_level: "info"
+mysqld_exporter_web_listen_address: ":9104"
+mysqld_exporter_web_telemetry_path: "/metrics"
+mysqld_exporter_collector_flags: ["collect.auto_increment.columns", "collect.info_schema.innodb_cmp"]
+
+mysqld_exporter_config_my_cnf: "/opt/my.cnf"
